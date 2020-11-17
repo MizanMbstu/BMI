@@ -9,9 +9,8 @@ BMI can be computed by dividing the person's weight (kg) by their squared height
 
 where *kg* represents the person's weight and *m^2* the person's squared height.
 
-#### About this BMI Calculator
 
-en](https://www.cdc.gov/healthyweight/bmi/calculator.html)
+
 
 
 ### Developer
@@ -20,8 +19,6 @@ This web app is developted by
 **Md.Mizanoor Rahman** <br/>
 
 
-
-##### Connect with me:
 
 [<img align="left" alt="Mizanoor Rahman | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin]
 [<img align="left" alt="Mizanoor Rahman | Instagram" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/instagram.svg" />][instagram]
