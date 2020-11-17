@@ -14,8 +14,8 @@ where *kg* represents the person's weight and *m^2* the person's squared height.
 This *BMI Calculator* is for adults 20 years and older. Further information on calculating BMI for children and teenagers is available from the CDC.
 
 #### References
-1. Centers for Disease Control. [Body Mass Index (BMI)](https://www.cdc.gov/healthyweight/assessing/bmi/index.html), Accessed January 26, 2020.
-2. Centers for Disease Control. [BMI Percentile Calculator for Child and Teen](https://www.cdc.gov/healthyweight/bmi/calculator.html), Accessed January 26, 2020.
+1. Centers for Disease Control. [Body Mass Index (BMI)](https://www.cdc.gov/healthyweight/assessing/bmi/index.html)
+2. Centers for Disease Control. [BMI Percentile Calculator for Child and Teen](https://www.cdc.gov/healthyweight/bmi/calculator.html)
 
 
 ### Developer
