@@ -1,0 +1,93 @@
+
+#Install required packages 
+
+# install.packages("shiny")
+library(shiny)
+# install.packages("shinythemes")
+library(shinythemes)
+#install.packages("rmarkdown")
+library(rmarkdown)
+
+
+
+
+# User Interface                   
+
+ui <- fluidPage(theme = shinytheme("flatly"),
+                navbarPage("BMI Calculator",
+                           
+                           tabPanel("Home",
+                                    # Input values
+                                    sidebarPanel(
+                                      HTML("<h3>Input parameters</h4>"),
+                                      sliderInput("height", 
+                                                  label = "Height (in cm)", 
+                                                  value = 175, 
+                                                  min = 40, 
+                                                  max = 250),
+                                      sliderInput("weight", 
+                                                  label = "Weight (in kg)", 
+                                                  value = 70, 
+                                                  min = 10, 
+                                                  max = 100),
+                                      
+                                      actionButton("submitbutton", 
+                                                   "Submit", 
+                                                   class = "btn btn-primary")
+                                    ),
+                                    
+                                    mainPanel(
+                                      tags$label(h3('Status/Output')), # Status/Output Text Box
+                                      verbatimTextOutput('contents'),
+                                      tableOutput('tabledata') # Results table
+                                    ) # mainPanel()
+                                    
+                           ), #tabPanel(), Home
+                           
+                           tabPanel("About", 
+                                    titlePanel("About"), 
+                                    div(includeMarkdown("about.md"), 
+                                        align="justify")
+                           ) #tabPanel(), About
+                           
+                ) # navbarPage()
+) # fluidPage()
+
+
+
+# Server                           
+
+server <- function(input, output, session) {
+  
+  # Input Data
+  datasetInput <- reactive({  
+    
+    bmi <- input$weight/( (input$height/100) * (input$height/100) )
+    bmi <- data.frame(bmi)
+    names(bmi) <- "BMI"
+    print(bmi)
+    
+  })
+  
+  # Status/Output Text Box
+  output$contents <- renderPrint({
+    if (input$submitbutton>0) { 
+      isolate("Calculation complete.") 
+    } else {
+      return("Give Height,Weight and click submit button")
+    }
+  })
+  
+  # Prediction results table
+  output$tabledata <- renderTable({
+    if (input$submitbutton>0) { 
+      isolate(datasetInput()) 
+    } 
+  })
+  
+}
+
+
+
+# Create Shiny App                 
+shinyApp(ui = ui, server = server)
